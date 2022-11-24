@@ -15,6 +15,16 @@
   gap: 1em;
 }
 
+.color_picker {
+  appearance: none;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  height: 5em;
+  padding: 0;
+  width: 5em;
+}
+
 .color_input {
   display: block;
   margin: 0;

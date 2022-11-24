@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styles from "../styles/form.module.css";
+import jsonData from "../assets/color.json";
 
 const Form = () => {
   const [color, setColor] = useState("#f05600");
@@ -10,58 +11,12 @@ const Form = () => {
   const [g, setG] = useState("");
   const [b, setB] = useState("");
 
-  const alphabate = [
-    "a",
-    "b",
-    "c",
-    "d",
-    "e",
-    "f",
-    "g",
-    "h",
-    "i",
-    "j",
-    "k",
-    "l",
-    "m",
-    "n",
-    "o",
-    "p",
-    "q",
-    "r",
-    "s",
-    "t",
-    "u",
-    "v",
-    "w",
-    "x",
-    "y",
-    "z",
-  ];
-  const number = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
-
-  const random_color = () => {
-    let color = "#";
-    let random_str = "";
-    for (let i = 0; i < 6; i++) {
-      // get random value from alphabate and number
-      let random = Math.floor(Math.random() * 36);
-      if (random < 10) {
-        random_str = number[random];
-      } else {
-        random_str = alphabate[random - 10];
-      }
-      color += random_str;
-    }
-    setColor(color);
-  };
-
   return (
     <div style={{ backgroundColor: color }} className={styles.main_container}>
       <div className={styles.color_container}>
         <input
           type="color"
-          id="color_tab"
+          className={styles.color_picker}
           value={color}
           onChange={(e) => setColor(e.target.value)}
         />
@@ -114,7 +69,16 @@ const Form = () => {
 
       {/* button container  */}
       <div className={styles.button_container}>
-        <a href="#" onClick={random_color} className={styles.btn}>
+        <a
+          href="#"
+          onClick={() => {
+            const randomColor = Math.floor(Math.random() * 16777215).toString(
+              16
+            );
+            setColor("#" + randomColor);
+          }}
+          className={styles.btn}
+        >
           🔁Random
         </a>
         <a href="#" className={styles.btn}>
