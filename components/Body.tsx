@@ -9,12 +9,8 @@ const Body = () => {
   return (
     <div>
       <main className={styles.main}>
-        <div className={styles.form_container}>
-          <Form />
-        </div>
-        <footer>
-          <Footer />
-        </footer>
+        <Form />
+        <Footer />
       </main>
     </div>
   );
