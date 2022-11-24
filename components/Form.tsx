@@ -140,13 +140,31 @@ const Form = () => {
         >
           🔁Random
         </a>
-        <a href="#" className={styles.btn}>
+        <a
+          href="#"
+          onClick={() => {
+            navigator.clipboard.writeText(color);
+          }}
+          className={styles.btn}
+        >
           📋Hex Code
         </a>
-        <a href="#" className={styles.btn}>
+        <a
+          href="#"
+          onClick={() => {
+            navigator.clipboard.writeText(`rgb(${r}, ${g}, ${b})`);
+          }}
+          className={styles.btn}
+        >
           📋RGB Code
         </a>
-        <a href="#" className={styles.btn}>
+        <a
+          href="#"
+          onClick={() => {
+            navigator.clipboard.writeText(`hsl(${h}, ${s}%, ${l}%)`);
+          }}
+          className={styles.btn}
+        >
           📋HSL Code
         </a>
       </div>
